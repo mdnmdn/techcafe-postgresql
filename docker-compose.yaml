@@ -1,0 +1,27 @@
+version: '3.4'
+services:
+  postgres:
+    image: postgres:13-alpine
+    ports:
+      - '5432:5432'
+    container_name: techcafe_postgres
+    #restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: io
+      #POSTGRES_DB: test
+    volumes:
+      - ./data/db:/var/lib/postgresql/data
+      - ./init:/docker-entrypoint-initdb.d
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: techcafe_pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: postgres@synesthesia.it
+      PGADMIN_DEFAULT_PASSWORD: io
+      PGADMIN_LISTEN_PORT: '5050'
+    ports:
+      - '5050:5050'
+#    volumes:
+#      - ./data/pgadmin:/var/lib/pgadmin
+

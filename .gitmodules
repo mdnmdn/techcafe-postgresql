@@ -1,0 +1,3 @@
+[submodule "init/adventure-works-postgres"]
+	path = init/adventure-works-postgres
+	url = git@github.com:NorfolkDataSci/adventure-works-postgres.git

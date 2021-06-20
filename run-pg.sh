@@ -1,5 +1,8 @@
 ROOT_PATH="$(CDPATH= cd -- "$(dirname -- "$0")" && pwd -P)"
 
+git submodule init
+git submodule update
+
 mkdir -p ${ROOT_PATH}/data/db
 mkdir -p ${ROOT_PATH}/data/pgadmin
 docker compose up -d
